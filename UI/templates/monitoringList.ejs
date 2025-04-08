@@ -1,0 +1,73 @@
+<% layout('layout/page') -%>
+
+<% block('title', 'Monitoring List'); -%>
+
+
+<link rel="stylesheet" href="./statics/js/jquery/ui/jquery-ui.min.css">
+<script src="./statics/js/jquery/ui/jquery-ui.min.js"></script>
+
+<link href="./statics/js/jquery/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+<script src="./statics/js/jquery/datatables/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+<script src="./statics/pages/monitoringList.js" ></script>
+
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Cancelation Monitoring Task List 
+        <a href='./monitoring' class="btn btn-info" style="float: right; min-width: 185px;">Create new</a>
+    </div>
+    <ol class="breadcrumb mb-4" style="flex-direction: column;">
+        <div class="col-md-6">
+            <label class="small mb-1" for="inputMonitoringDate">Desired Date Filter</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <select id="selectDateOprator" class="input-group-text">
+                        <option value="eq">On</option>
+                        <option value="lte">Before</option>
+                        <option value="gt">After</option>
+                    </select>
+                </div>
+                <input type="text" id="inputMonitoringDate" class="form-control" placeholder="Click and select target date filter" style="background-color:white;" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="selectStatusFilter">Status Filter</label>
+                <select class="form-control" id="selectStatusFilter">
+                    <option value="active,inprogress,captcha">Active</option>
+                    <option value="failed,outofdate">Failed</option>
+                    <option value="successful">Successful</option>
+                    <option value="all">All</option>
+                </select>
+            </div>
+        </div>
+    </ol>    
+    <div class="card-body">
+        <div class="table-responsive">
+            <button class="btn btn-info" id="btnRefreshGrid" style="float: right;margin: 30px;margin-right: 0px;"><i class="fas fa-redo"></i>Refresh list</button>
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th data-width="30%">Account / Facilities</th>
+                        <th>Desired Date (From)</th>
+                        <th>Desired Date (To)</th>
+                        <th>Time range</th>
+                        <th data-width="30%">Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Account / Facilities</th>
+                        <th>Desired Date (From)</th>
+                        <th>Desired Date (To)</th>
+                        <th>Time range</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div> 
+</div>

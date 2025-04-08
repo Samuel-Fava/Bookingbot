@@ -1,0 +1,42 @@
+<% layout('layout/page') -%>
+
+<% block('title', 'Booking Manager'); -%>
+
+<link rel="stylesheet" href="./statics/js/jquery/ui/jquery-ui.min.css">
+<script src="./statics/js/jquery/ui/jquery-ui.min.js"></script>
+
+<script src="./statics/pages/editAccount.js" ></script>
+
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="card shadow-lg border-0 rounded-lg mt-5">
+            <div class="card-header"><h3 class="text-center font-weight-light my-4">Edit Account</h3></div>
+            <div class="card-body">
+                <form>                    
+                    <div class="form-group newAccountPanel">
+                        <label class="small mb-1" for="inputLabel">Label</label>
+                        <input class="form-control py-4" id="inputLabel" type="text" placeholder="Set a label to find accounts easier" />
+                    </div>
+                    <div class="form-row newAccountPanel">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputUsername">Username</label>
+                                <input class="form-control py-4" id="inputUsername" type="text" placeholder="Enter account username"  autocapitalize="off" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputPassword">Password</label>
+                                <input class="form-control py-4" id="inputPassword" type="text" placeholder="a new password for changing"  autocapitalize="off" />
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="form-group mt-4 mb-0"><button id="saveButton" class="btn btn-primary btn-block">Save changes</button></div>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <div class="small">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>

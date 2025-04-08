@@ -1,0 +1,82 @@
+<% layout('layout/page') -%>
+
+<% block('title', 'Settings'); -%>
+
+<script src="https://cdn.jsdelivr.net/gh/manuelmhtr/countries-and-timezones@latest/dist/index.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="./statics/js/jquery/ui/jquery-ui.min.css">
+<script src="./statics/js/jquery/ui/jquery-ui.min.js"></script>
+
+<link href="./statics/js/jquery/MDTimePicker/mdtimepicker.min.css" rel="stylesheet" />
+<script src="./statics/js/jquery/MDTimePicker/mdtimepicker.min.js"></script>
+
+<link href="./statics/js/jquery/select2/select2.min.css" rel="stylesheet" />
+<script src="./statics/js/jquery/select2/select2.min.js"></script>
+
+<script src="./statics/pages/settings.js" ></script>
+
+
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="card shadow-lg border-0 rounded-lg mt-5">
+            <div class="card-header"><h3 class="text-center font-weight-light my-4">Settings</h3></div>
+            <div class="card-body">
+                <form>                    
+                    <div class="form-group">
+                        <label class="small mb-1" for="selectTimezone">Your Time zone</label>
+                        <select id="selectTimezone" class="form-control py-4" ></select>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputBookingTime">Booking Target Time</label>
+                                <input class="form-control py-4 timePicker" id="inputBookingTime" type="text" placeholder="Click and choose Booking start time" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputBookingStartBefore">Start </label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control py-4" id="inputBookingStartBefore" style="margin: 0px; padding-left: 10px;" placeholder="In Minutes" aria-describedby="inputBookingStartBefore-description">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="inputBookingStartBefore-description">minutes before target</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row"> 
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputOpenTeeTimes">Open Tee Times </label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control py-4" id="inputOpenTeeTimes" style="margin: 0px; padding-left: 10px;" placeholder="In Days" aria-describedby="inputOpenTeeTimes-description">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="inputOpenTeeTimes-description">Days Before</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row"> 
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputMonitoringInterval">Monitoring Interval </label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control py-4" id="inputMonitoringInterval" style="margin: 0px; padding-left: 10px;" placeholder="In Seconds" aria-describedby="inputMonitoringInterval-description">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="inputMonitoringInterval-description">Seconds</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-4 mb-0"><button id="saveButton" class="btn btn-primary btn-block">Save settings</button></div>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <div class="small">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>

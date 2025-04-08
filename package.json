@@ -1,0 +1,48 @@
+{
+  "name": "golf-booking-bot",
+  "version": "1.1.0",
+  "description": "A bot for automating golf booking tasks",
+  "main": "Browser.js",
+  "bin": "Browser.js",
+  "scripts": {
+    "build": "echo 'no build needed'",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "golf",
+    "automation",
+    "bot"
+  ],
+  "author": "",
+  "license": "ISC",
+  "pkg": {
+    "assets": [
+      "UI/public/**/*",
+      "UI/templates/**/*",
+      "node_modules/puppeteer-extra-plugin-stealth/**/*.*"
+    ],
+    "outputPath": "dist",
+    "scripts": "node_modules/puppeteer/lib/*.js"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.10",
+    "config": "^3.3.12",
+    "debug": "^4.3.1",
+    "docker": "^1.0.0",
+    "ejs": "^3.1.6",
+    "ejs-locals": "^1.0.2",
+    "express": "^4.17.1",
+    "joi": "^17.4.0",
+    "joi-objectid": "^3.0.1",
+    "moment-timezone": "^0.5.33",
+    "mongoose": "^7.1.1",
+    "morgan": "^1.10.0",
+    "open": "^8.0.9",
+    "progress": "^2.0.3",
+    "puppeteer": "^20.2.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "user-agents": "^1.0.650",
+    "useragent": "^2.3.0"
+  }
+}

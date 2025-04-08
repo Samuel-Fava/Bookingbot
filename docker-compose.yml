@@ -1,0 +1,66 @@
+version: '3.2'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root_mongo
+      MONGO_INITDB_ROOT_PASSWORD: Fsde53HJiu43giBWxdeY8
+    volumes:
+      - ./database:/data/db
+    networks:
+      kasm_default_network:
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - '172.18.0.1:8081:8081'
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root_mongo
+      ME_CONFIG_MONGODB_ADMINPASSWORD: Fsde53HJiu43giBWxdeY8
+      ME_CONFIG_MONGODB_URL: mongodb://root_mongo:Fsde53HJiu43giBWxdeY8@mongo:27017/
+    networks:
+      kasm_default_network:
+  app:
+    build:
+      context: .
+      shm_size: '2gb' # <-- this will set the size when BUILDING
+    shm_size: '2gb' # <-- when RUNNING 
+    depends_on:
+      - mongo
+    container_name: app
+    restart: unless-stopped
+    ports:
+      - '172.18.0.1:8080:8080'
+      - '172.18.0.1:6900:6901'
+    environment:
+      LAUNCH_URL: https://127.0.0.1:8080
+      VNC_PW: 123456
+      TZ: "America/New_York"
+
+      MONGODB_DBNAME: GBB
+      PUPPETEER_SKIP_DOWNLOAD: "true"
+      #MONGODB_HOST: mongo
+      #MONGODB_ROOT_USERNAME: root_mongo
+      #MONGODB_ROOT_PASSWORD: Fsde53HJiu43giBWxdeY8
+      MONGODB_URL: mongodb://root_mongo:Fsde53HJiu43giBWxdeY8@mongo:27017/
+    networks:
+      kasm_default_network:
+        #ipv4_address: 172.18.18.18
+        # browser:
+        #   image: kasmweb/chrome:1.13.0
+        #   container_name: browser
+        #   restart: unless-stopped
+        #   ports:
+        #     - '6901:6901'
+        #   environment:
+        #     LAUNCH_URL: https://gmail.com
+        #     VNC_PW: 123456
+        #   networks:
+        #     kasm_default_network:
+networks:
+  kasm_default_network:
+    name: kasm_default_network
+    external: true

@@ -1,0 +1,93 @@
+<% layout('layout/page') -%>
+
+<% block('title', 'Dashboard'); -%>
+<% block('header', 'Statistics'); -%>
+
+<link href="./statics/js/jquery/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+<script src="./statics/js/jquery/datatables/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+<script src="./statics/pages/index.js" ></script>
+
+<div class="row">
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body">
+                <div class="row"><div class="col-7">Pending:</div><div class="col-5"><span id="statistics-pending-today">0</span> Today</div></div>  
+                <div class="row"><div class="col-5 offset-7"><span id="statistics-pending-total">0</span> Total</div></div>  
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="./bookingList#pending">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-warning text-white mb-4">
+            <div class="card-body">
+                <div class="row"><div class="col-7">Failed:</div><div class="col-5"><span id="statistics-failure-today">0</span> Today</div></div>  
+                <div class="row"><div class="col-5 offset-7"><span id="statistics-failure-total">0</span> Total</div></div>  
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="./bookingList#failed">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-success text-white mb-4">
+            <div class="card-body">
+                <div class="row"><div class="col-7">Successful Booking:</div><div class="col-5"><span id="statistics-success-today">0</span> Today</div></div>  
+                <div class="row"><div class="col-5 offset-7"><span id="statistics-success-total">0</span> Total</div></div>  
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="./bookingList#successful">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-danger text-white mb-4">
+            <div class="card-body">
+                <div class="row"><div class="col-7">Cancelation mon:</div><div class="col-5"><span id="statistics-cancelation-active">0</span> Active</div></div>  
+                <div class="row"><div class="col-5 offset-7"><span id="statistics-cancelation-total">0</span> Total</div></div>  
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="monitoringList#active">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Booking Queue
+        <a href='./booking' class="btn btn-info" style="float: right; min-width: 185px;">Create new</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="bookingDataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Account</th>
+                        <th>Booking Target Date</th>
+                        <th>FROM (hour)</th>
+                        <th>TO (hour)</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Account</th>
+                        <th>Booking Target Date</th>
+                        <th>FROM (hour)</th>
+                        <th>TO (hour)</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,109 @@
+<% layout('layout/page') -%>
+
+<% block('title', 'Booking Manager'); -%>
+
+<link rel="stylesheet" href="./statics/js/jquery/ui/jquery-ui.min.css">
+<script src="./statics/js/jquery/ui/jquery-ui.min.js"></script>
+
+<link href="./statics/js/jquery/MDTimePicker/mdtimepicker.min.css" rel="stylesheet" />
+<script src="./statics/js/jquery/MDTimePicker/mdtimepicker.min.js"></script>
+
+<link href="./statics/js/jquery/select2/select2.min.css" rel="stylesheet" />
+<script src="./statics/js/jquery/select2/select2.min.js"></script>
+
+<script src="./statics/pages/booking.js" ></script>
+<style > 
+    .list-group-item {
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    @media screen and (min-width: 766px) {
+        #facilityList {
+            max-height: 325px;
+            overflow: auto;
+        }
+    }
+</style>
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="card shadow-lg border-0 rounded-lg mt-5">
+            <div class="card-header"><h3 class="text-center font-weight-light my-4">Create New Booking Schedule-V2.7</h3></div>
+            <div class="card-body">
+                <form>                    
+                    <div class="form-group">
+                        <label class="small mb-1" for="selectAccount">Account</label>
+                        <select id="selectAccount" class="form-control py-4" ></select>
+                    </div>
+                    <div class="form-group newAccountPanel">
+                        <label class="small mb-1" for="inputLabel">Account Label</label>
+                        <input class="form-control py-4" id="inputLabel" type="text" placeholder="Set a label to find accounts easier" />
+                    </div>
+                    <div class="form-row newAccountPanel">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputUsername">Username</label>
+                                <input class="form-control py-4" id="inputUsername" type="text" placeholder="Enter account username" autocapitalize="off" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputPassword">Password</label>
+                                <input class="form-control py-4" id="inputPassword" type="text" placeholder="Enter account password"  autocapitalize="off" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-12 col-md-6" >
+                            <label class="small mb-1">Facility</label>
+                            <div id="facilityList" >                                
+                                <div class="list-group">
+                                    <% facilityList.forEach(function(facility) { %>
+                                        <label class="list-group-item">
+                                            <input class="form-check-input me-1" type="radio" name="facilityList" value="<%= facility.key %>">
+                                            <%= facility.title %>
+                                        </label>
+                                    <% }); %>                                
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputTargetDate">Booking Target Date</label>
+                                        <input class="form-control py-4" id="inputTargetDate" type="text" placeholder="Click and choose booking date" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputLaunchDate">Booking Launch Date</label>
+                                        <input class="form-control py-4" id="inputLaunchDate" type="text" readonly="readonly" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputFromTime">Select FROM (hour)</label>
+                                        <input class="form-control py-4 timePicker" id="inputFromTime" type="text" placeholder="Click and choose FROM" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputToTime">Select TO (hour)</label>
+                                        <input class="form-control py-4 timePicker" id="inputToTime" type="text" placeholder="Click and choose TO" />
+                                    </div>        
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                    <div class="form-group mt-4 mb-0"><button id="createButton" class="btn btn-primary btn-block">Create schedule</button></div>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <div class="small">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>

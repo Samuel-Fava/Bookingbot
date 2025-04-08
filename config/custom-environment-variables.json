@@ -1,0 +1,9 @@
+{
+    "database": {
+        "url": "MONGODB_URL",
+        "host": "MONGODB_HOST",
+        "name": "MONGODB_DBNAME",
+        "username": "MONGODB_ROOT_USERNAME",
+        "password": "MONGODB_ROOT_PASSWORD"
+    }
+}
